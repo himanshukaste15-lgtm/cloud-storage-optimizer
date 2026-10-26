@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Cloud Storage Optimizer</title><link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header><div><span class="eyebrow">INTELLIGENT LIFECYCLE MANAGER</span><h1>Cloud Storage Optimizer</h1><p>Find lower-cost storage opportunities without moving or deleting your files.</p></div><span id="mode-badge" class="badge">Loading mode…</span></header>
+  <main>
+    <section id="notice" class="notice hidden"></section>
+    <section class="upload-card"><div><h2>Upload files</h2><p>Files are hashed with SHA-256 to identify exact duplicates. Max 10 files, 25 MB each.</p></div><form id="upload-form"><input id="files" name="files" type="file" multiple required><button>Upload & analyze</button></form><div class="demo-actions"><button class="secondary" id="load-demo">Load presentation demo data</button><button class="secondary" id="restart-demo">Restart presentation demo</button></div></section>
+    <section class="summary-grid" id="summary"></section>
+    <section class="panel-grid"><article class="panel"><h2>Storage distribution</h2><canvas id="storage-chart"></canvas></article><article class="panel"><h2>Monthly savings opportunity</h2><div id="savings"></div><p class="muted">Estimate only; no transition has been performed.</p></article></section>
+    <section class="panel"><div class="panel-heading"><div><h2>Lifecycle recommendations</h2><p>Suggested changes based on last access and your rules. Review before any manual AWS action.</p></div><button class="secondary" id="refresh-analysis">Refresh analysis</button></div><div id="recommendations" class="empty">No recommendations yet.</div></section>
+    <section class="panel"><h2>Exact duplicate groups</h2><div id="duplicates" class="empty">No duplicate files detected.</div></section>
+    <section class="panel"><h2>Stored files</h2><div class="table-wrap"><table><thead><tr><th>Name</th><th>Size</th><th>Category</th><th>Last accessed</th><th>Accesses</th><th></th></tr></thead><tbody id="file-list"></tbody></table></div></section>
+    <section class="panel assumptions"><h2>Cost assumptions</h2><p id="assumptions">Loading…</p></section>
+  </main><footer>Lifecycle recommendations are informational. Actual S3 costs depend on AWS region, requests, retrieval, data transfer, and storage-duration rules.</footer>
+  <script src="app.js"></script>
+</body></html>
